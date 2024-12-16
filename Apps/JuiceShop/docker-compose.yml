@@ -29,5 +29,7 @@ x-casaos:
 
             Apart from the hacker and awareness training use case, pentesting proxies or security scanners can use Juice Shop as a “guinea pig”-application to check how well their tools cope with JavaScript-heavy application frontends and REST APIs.
     
+    architectures:
+        - amd64
     port_map: "3000"
     index: /
