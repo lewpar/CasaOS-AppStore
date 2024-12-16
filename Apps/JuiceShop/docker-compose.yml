@@ -10,10 +10,6 @@ services:
               published: "3000"
               protocol: tcp
 
-        volumes:
-            - type: bind
-              source: /DATA/AppData/juice-shop/config
-
 x-casaos:
     main: juice-shop
     author: Lewis Parmenter
