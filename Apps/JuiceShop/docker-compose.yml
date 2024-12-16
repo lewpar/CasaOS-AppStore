@@ -5,18 +5,25 @@ services:
         image: bkimminich/juice-shop
         restart: unless-stopped
         network_mode: bridge
+        privileged: false
+        hostname: juice-shop
+        cpu_shared: 10
+        deploy:
+            resources:
+                limits:
+                    memory: 2048M
         ports:
             - target: 3000
               published: "3000"
               protocol: tcp
-
-        volumes:
-            - type: bind
-              source: /DATA/AppData/$AppID
-              target: /tmp
+        volumes: []
+        devices: []
+        cap_add: []
+        environment: []
 
 x-casaos:
     main: juice-shop
+    store_app_id: juice-shop
     author: Lewis Parmenter
     category: Cyber Security
     developer: OWASP
@@ -29,12 +36,5 @@ x-casaos:
             The application contains a vast number of hacking challenges of varying difficulty where the user is supposed to exploit the underlying vulnerabilities. The hacking progress is tracked on a score board. Finding this score board is actually one of the (easy) challenges!
 
             Apart from the hacker and awareness training use case, pentesting proxies or security scanners can use Juice Shop as a “guinea pig”-application to check how well their tools cope with JavaScript-heavy application frontends and REST APIs.
-    
-    architectures:
-        - "386"
-        - amd64
-        - arm
-        - arm64
-        - ppc64le
     port_map: "3000"
     index: /
