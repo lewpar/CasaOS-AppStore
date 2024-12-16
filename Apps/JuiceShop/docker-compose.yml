@@ -10,6 +10,11 @@ services:
               published: "3000"
               protocol: tcp
 
+        volumes:
+            - type: bind
+              source: /DATA/AppData/$AppID
+              target: /$AppID
+
 x-casaos:
     main: juice-shop
     author: Lewis Parmenter
