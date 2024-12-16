@@ -13,7 +13,7 @@ services:
         volumes:
             - type: bind
               source: /DATA/AppData/$AppID
-              target: /$AppID
+              target: /tmp
 
 x-casaos:
     main: juice-shop
